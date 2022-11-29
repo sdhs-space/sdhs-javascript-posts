@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: #282828;
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", sans-serif;
+}
+body {
+    background: #eaeaea;
+}
+
+.container {
+    width: 1600px;
+    margin: 0 auto;
+}
+
+section h3 {
+    padding: 2rem 0 1rem;
+}
+
+.gallery .item-container {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.gallery .item-container .item {
+    overflow: hidden;
+    border-radius: 0.25rem;
+    background: #fff;
+    box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px;
+}
+
+.gallery .item-container .item .background {
+    background-color: #f7f7f7;
+    height: 140px;
+}
+
+.gallery .item-container .item .text-wrap {
+    padding: 0.75rem 0.5rem;
+}
+
+.gallery .item-container .item .text-wrap .title {
+    font-weight: 400;
+    font-size: 0.875rem;
+    padding: 0.5rem 0;
+}
+
+.gallery .item-container .item .text-wrap .description {
+    color: #aaa;
+    height: 60px;
+    font-size: 0.875rem;
+    font-weight: 200;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.gallery .item-container .item .item-footer {
+    border-top: 1px solid #eee;
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gallery .item-container .item .item-footer .user {
+    font-size: 0.75rem;
+    color: #999;
+}
+.gallery .item-container .item .item-footer .user span {
+    color: #282828;
+}
+
+.gallery .item-container .item .item-footer .date {
+    font-size: 0.75rem;
+    padding: 0.5rem 0;
+    color: #999;
+    font-weight: 300;
+}
