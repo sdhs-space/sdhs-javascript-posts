@@ -5,6 +5,11 @@
     box-sizing: border-box;
     font-family: "Noto Sans KR", sans-serif;
 }
+input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+}
 body {
     background: #eaeaea;
 }
@@ -14,13 +19,29 @@ button {
     border: 0;
 }
 
+.scroll-block {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 .container {
     width: 1600px;
     margin: 0 auto;
 }
 
-section h3 {
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(33, 33, 33, 0.8);
+}
+header .container {
     padding: 1rem 0;
+}
+header .container .title {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .gallery {
@@ -164,4 +185,46 @@ section h3 {
 
 .gallery-modal .modal-content .modal-footer .user {
     color: #999;
+}
+
+.search-modal.open {
+    display: block;
+}
+
+.search-modal .modal-content {
+    position: absolute;
+    left: 50%;
+    margin-top: 3rem;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 1);
+    width: 550px;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.search-modal .modal-content h3 {
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: center;
+}
+
+.search-modal .modal-content .modal-body {
+    padding: 1rem 1.5rem;
+}
+
+.search-modal .form-control {
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+
+.search-modal .form-control .name {
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.search-modal .form-control .input {
+    margin-left: 1rem;
+    flex: 1;
+    padding: 0.75rem 0;
 }

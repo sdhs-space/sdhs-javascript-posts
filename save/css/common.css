@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: #282828;
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", sans-serif;
+}
+input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+}
+body {
+    background: #eaeaea;
+}
+button {
+    background: transparent;
+    outline: 0;
+    border: 0;
+}
+
+.scroll-block {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    width: 1600px;
+    margin: 0 auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(33, 33, 33, 0.8);
+}
+header .container {
+    padding: 1rem 0;
+}
+header .container .title {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.gallery {
+    padding-top: 1rem;
+}
+.gallery .item-container {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.gallery .item-container .item {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    background: #fff;
+    box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px;
+}
+
+.gallery .item-container .item .background {
+    background-color: #f7f7f7;
+    height: 140px;
+}
+
+.gallery .item-container .item .text-wrap {
+    padding: 0.75rem 0.5rem;
+}
+
+.gallery .item-container .item .text-wrap .title {
+    font-weight: 400;
+    font-size: 0.875rem;
+    padding: 0.5rem 0;
+}
+
+.gallery .item-container .item .text-wrap .description {
+    color: #aaa;
+    height: 60px;
+    font-size: 0.875rem;
+    font-weight: 200;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.gallery .item-container .item .item-footer {
+    border-top: 1px solid #eee;
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gallery .item-container .item .item-footer .user {
+    font-size: 0.75rem;
+    color: #999;
+}
+.gallery .item-container .item .item-footer .user span {
+    color: #282828;
+}
+
+.gallery .item-container .item .item-footer .date {
+    font-size: 0.75rem;
+    padding: 0.5rem 0;
+    color: #999;
+    font-weight: 300;
+}
+
+.modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    transition: opacity 0.5s;
+}
+
+.gallery-modal.open {
+    display: flex;
+}
+
+.gallery-modal .modal-content {
+    margin-top: 5rem;
+    width: 800px;
+    height: min-content;
+    max-height: 80vh;
+    background-color: #fff;
+    padding: 1rem;
+}
+
+.gallery-modal .modal-content .modal-head .background {
+    background: #eee;
+    height: 200px;
+}
+
+.gallery-modal .modal-content .modal-body {
+    padding: 1rem;
+}
+.gallery-modal .modal-content .modal-body .title {
+    padding: 0.5rem 0;
+    font-weight: 500;
+}
+
+.gallery-modal .modal-content .modal-body .description {
+    word-break: break-all;
+    font-weight: 300;
+    font-size: 0.875rem;
+}
+.gallery-modal .modal-content .modal-body .description::selection {
+    background-color: #eee;
+}
+
+.gallery-modal .modal-content .modal-body .categorys {
+    padding-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+.gallery-modal .modal-content .modal-body .categorys .category {
+    font-weight: 400;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #fefefe;
+    color: #efefef;
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+}
+
+.gallery-modal .modal-content .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    padding: 1rem 0.5rem 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+}
+
+.gallery-modal .modal-content .modal-footer .user {
+    color: #999;
+}
+
+.search-modal.open {
+    display: block;
+}
+
+.search-modal .modal-content {
+    position: absolute;
+    left: 50%;
+    margin-top: 3rem;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 1);
+    width: 550px;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.search-modal .modal-content h3 {
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: center;
+}
+
+.search-modal .modal-content .modal-body {
+    padding: 1rem 1.5rem;
+}
+
+.search-modal .form-control {
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+
+.search-modal .form-control .name {
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.search-modal .form-control .input {
+    margin-left: 1rem;
+    flex: 1;
+    padding: 0.75rem 0;
+}

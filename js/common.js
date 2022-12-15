@@ -1,6 +1,13 @@
 const members = await fetch("../json/members.json").then(toJSON);
 const categorys = await fetch("../json/categorys.json").then(toJSON);
 const posts = await fetch("../json/posts.json").then(toJSON);
+const hotKeyState = {
+    boolean: {},
+    description: {
+        SHIFT: 16,
+        CONTROL: 17,
+    },
+};
 posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 const rowLimit = 20;
@@ -10,6 +17,7 @@ const $galleryModal = document.querySelector(".gallery-modal");
 const $galleryContainer = document.querySelector(".gallery .item-container");
 const $memberFilter = document.querySelector(".member-filter");
 const $categoryFilter = document.querySelector(".category-filter");
+const $modalContent = $galleryModal.querySelector(".modal-content");
 const services = {
     findMember(findMemberIndex) {
         return members.find(({ index }) => findMemberIndex === index);
@@ -27,6 +35,21 @@ window.addEventListener("scroll", function () {
         currentRow++;
         renderGallerys();
     }
+});
+$modalContent.addEventListener("click", function (e) {
+    e.stopPropagation();
+});
+document.addEventListener("keydown", function (e) {
+    hotKeyState.boolean[e.which] = true;
+    const isDownShift = hotKeyState.boolean[hotKeyState.description.SHIFT];
+    const isDownControl = hotKeyState.boolean[hotKeyState.description.CONTROL];
+
+    if (isDownShift && isDownControl) {
+        console.log("312");
+    }
+});
+document.addEventListener("keyup", function (e) {
+    hotKeyState.boolean[e.which] = false;
 });
 
 function renderGallerys() {
@@ -84,18 +107,16 @@ function setModalContent(gallery) {
 function modalOpen() {
     const $galleryModal = document.querySelector(".gallery-modal");
     $galleryModal.classList.add("open");
+    document.body.classList.add("scroll-block");
 }
 function modalClose() {
     const $galleryModal = document.querySelector(".gallery-modal");
     $galleryModal.classList.remove("open");
+    document.body.classList.remove("scroll-block");
 }
 
 $galleryModal.addEventListener("click", function (e) {
     modalClose();
 });
 
-const c = $galleryModal.querySelector(".modal-content");
-c.addEventListener("click", function (e) {
-    e.stopPropagation();
-});
 renderGallerys();

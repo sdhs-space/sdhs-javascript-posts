@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SDHS POSTS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/common.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container"></div>
+    </header>
+    <section>
+      <article class="posts">
+        <div class="container">
+          <div class="item-container grid"></div>
+        </div>
+      </article>
+    </section>
+    <dialog class="detail-post__dialog modal">
+      <div class="modal-head">
+        <div class="background"></div>
+      </div>
+      <div class="modal-body">
+        <h3 class="title"></h3>
+        <div class="description"></div>
+        <div class="categorys"></div>
+      </div>
+      <div class="modal-footer">
+        <span class="member-name">
+          by
+          <span></span>
+        </span>
+        <span class="create-date"></span>
+      </div>
+    </dialog>
+    <dialog class="filter-post__dialog modal">
+      <div class="modal-head">
+        <h3>SEARCH</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <label>
+            <p class="label-name">유저 이름</p>
+            <input type="text" class="input member-name__input" placeholder="유저 이름을 입력해주세요. (ex: 김연규)" />
+          </label>
+        </div>
+        <div class="row">
+          <label>
+            <p class="label-name">카테고리</p>
+            <div class="category-input">
+              <input type="text" class="input category__input" />
+            </div>
+          </label>
+          <div class="categorys"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="button-container flex">
+          <button class="btn close-btn">Cancel</button>
+          <button class="btn success-btn">Search</button>
+        </div>
+      </div>
+    </dialog>
+    <script src="js/helpers.js"></script>
+    <script src="js/common.js" type="module"></script>
+  </body>
+</html>
+
+<div></div>
