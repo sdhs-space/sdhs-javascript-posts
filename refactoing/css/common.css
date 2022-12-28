@@ -21,6 +21,7 @@ dialog{ border: 0; background: transparent;}
 /* header */
 header{ position: sticky; top: 0; background: rgba(33,33,33,0.8);}
 header .container{ padding: 1rem 0;}
+header .container h3{ color: #fff;}
 
 /* posts */
 .posts .item-container{ grid-template-columns: repeat(5,1fr); gap: 1.5rem;}

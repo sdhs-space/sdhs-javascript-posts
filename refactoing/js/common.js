@@ -79,8 +79,10 @@ modalState.filterPostElements.$succesButton.addEventListener("click", function (
   state.post.currentIndex = 0;
   state.findPosts = datas.all.filter(({ member, categorys }) => {
     const { memberName, categorys: fcategorys } = modalState.filterPostDatas;
-    const existMemberName = memberName === member.name;
-    const existCategoryName = categorys.some(({ name }) => fcategorys.includes(name));
+    const mapCategorys = categorys.map(({ name }) => name);
+    const existMemberName = !memberName.length || memberName === member.name;
+    const existCategoryName = fcategorys.every((categoryName) => mapCategorys.includes(categoryName));
+
     return existMemberName && existCategoryName;
   });
   modalState.filterPost.close();
@@ -101,6 +103,7 @@ modalState.filterPostElements.$categoryInput.addEventListener("keydown", functio
     $category.textContent = `#${value}`;
     $categoryDeleteButton.textContent = "X";
     $categoryDeleteButton.addEventListener("click", function () {
+      modalState.filterPostDatas.categorys = modalState.filterPostDatas.categorys.filter((categoryName) => categoryName !== value);
       $category.remove();
     });
     $category.append($categoryDeleteButton);
@@ -178,6 +181,7 @@ function setFilterPostDialogContent() {
     $category.textContent = `#${category}`;
     $categoryDeleteButton.textContent = "X";
     $categoryDeleteButton.addEventListener("click", function () {
+      modalState.filterPostDatas.categorys = modalState.filterPostDatas.categorys.filter((categoryName) => categoryName !== category);
       $category.remove();
     });
     $category.append($categoryDeleteButton);
@@ -189,6 +193,7 @@ function renderPost() {
   const { currentIndex, limit } = state.post;
   const startIndex = currentIndex * limit;
   const endIndex = startIndex + limit;
+  state.findPosts.sort(sortDateDESC);
   state.findPosts.slice(startIndex, endIndex).forEach(appendPostElement);
   state.post.currentIndex++;
 }
@@ -203,9 +208,9 @@ function init() {
       categorys,
     };
   });
-  state.findPosts = datas.all;
-  state.post.maxIndex = Math.ceil(datas.posts.length / state.post.limit);
   datas.posts.sort(sortDateDESC); // 게시글 최신순으로 정렬
+  state.post.maxIndex = Math.ceil(datas.posts.length / state.post.limit);
+  state.findPosts = datas.all;
   renderPost();
 }
 
